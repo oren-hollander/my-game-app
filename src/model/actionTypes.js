@@ -1,0 +1,5 @@
+export const SHOW_SESSION_PANEL = 'show-session'
+export const SHOW_SESSIONS_PANEL = 'show-sessions'
+export const SHOW_BUY_IN_PANEL = 'show-buy-in-panel'
+export const SHOW_CASH_OUT_PANEL = 'show-cash-out-panel'
+export const SHOW_CURRENT_SESSION = 'show-current-session'
