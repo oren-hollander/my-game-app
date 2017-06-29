@@ -1,21 +1,19 @@
+import { connect } from 'react-redux'
 import Session from './Session'
 import { selectSession } from '../../model/selectors'
-import { connect } from 'react-redux'
+import { showSessionsPanel, buyIn, cashOut} from '../../model/remoteActions'
 
-const makeSmartSession = (showSessionsPanel, showBuyInPanel, showCashOutPanel) => {
-  const mapStateToProps = state => ({
-    session: selectSession(state)
-  })
+const mapStateToProps = state => ({
+  session: selectSession(state)
+})
 
-  const mapDispatchToProps = dispatch => ({
-    showSessions: () => dispatch(showSessionsPanel()),
-    showBuyIn: () => dispatch(showBuyInPanel),
-    showCashOut: () => dispatch(showCashOutPanel)
-  })
+const mapDispatchToProps = dispatch => ({
+  showSessions: () => dispatch(showSessionsPanel),
+  showBuyIn: () => dispatch(buyIn),
+  showCashOut: () => dispatch(cashOut)
+})
 
-  const SmartSession = connect(mapStateToProps, mapDispatchToProps)(Session)
+const SmartSession = connect(mapStateToProps, mapDispatchToProps)(Session)
 
-  return SmartSession
-}
 
-export default makeSmartSession
+export default SmartSession

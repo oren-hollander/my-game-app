@@ -1,4 +1,4 @@
-const domain = 'https://my-game.now.sh'
+const domain = 'https://my-game-server.now.sh'
 
 const toJson = response => response.json()
 
@@ -12,7 +12,7 @@ const postOptions = json => ({
 
 const makeUri = uri => domain + uri
 
-const get = uri => fetch(makeUri(uri)).then(json)
+const get = uri => fetch(makeUri(uri)).then(toJson)
 const post = (uri, json) => fetch(makeUri(uri), postOptions(json)).then(toJson)
 
 export const sessions = () => get('/api/v0/sessions')

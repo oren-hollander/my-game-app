@@ -8,12 +8,13 @@ import Grid from '../grid/Grid'
 const Sessions = ({sessions, startSession, showSession}) => 
   <Grid>
     { 
-      map(session => 
-        <SessionTile key={session.id}
+      map(session => {
+        
+        return <SessionTile key={session.id}
           location={session.location} 
           timestamp={session.timestamp} 
           onClick={() => showSession(session.id)}
-        />, 
+        /> }, 
         sessions) 
     }
     { 

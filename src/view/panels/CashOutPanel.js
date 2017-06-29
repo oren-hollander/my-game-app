@@ -1,16 +1,13 @@
 import { connect } from 'react-redux'
 import SetAmountPanel from './SetAmountPanel'
 import { showCurrentSession } from '../../model/actions'
+import { cashOut } from '../../model/remoteActions'
 
-const makeCashOutPanel = cashOut => {
-  const mapDispatchToProps = dispatch => ({
-    onAction: amount => dispatch(cashOut(amount)),
-    onCancel: () => dispatch(showCurrentSession)
-  })
+const mapDispatchToProps = dispatch => ({
+  onAction: amount => dispatch(cashOut(amount)),
+  onCancel: () => dispatch(showCurrentSession)
+})
 
-  const CashOutPanel = connect(undefined, mapDispatchToProps)(SetAmountPanel)
+const CashOutPanel = connect(undefined, mapDispatchToProps)(SetAmountPanel)
 
-  return CashOutPanel
-}
-
-export default makeCashOutPanel
+export default CashOutPanel
